@@ -1,8 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "college";
+
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'my_db';
 
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -11,14 +12,26 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO student (firstname, lastname, email)
-VALUES ('abc', 'Def', 'john@example.com')";
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	$firstnm=$_POST['fnm'];
+	$lastnm=$_POST['lnm'];
+	$eml=$_POST['email'];
+	$password=$_POST['pass'];
+	
+
+}
+$sql = "INSERT INTO register (firstname, lastname, email,password)
+VALUES ('$firstnm', '$lastnm', '$eml', '$password')";
+
+echo $sql;
 if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-} else {
+  header("Location:index.html");
+} 
+else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-
 mysqli_close($conn);
 ?>
