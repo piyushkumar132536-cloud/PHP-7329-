@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>jQuery Check</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <h2>jQuery Library Check</h2>
+    <p id="message"></p>
+
+    <script>
+        if (typeof jQuery != "undefined") {
+            $("#message").text("jQuery is successfully loaded.");
+        } else {
+            document.getElementById("message").innerHTML =
+                "jQuery is not loaded.";
+        }
+    </script>
+
+</body>
+</html>
