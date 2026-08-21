@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Scroll to Top</title>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            height: 1500px;
+            font-family: Arial;
+        }
+
+        #topButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Web Page</h1>
+    <p>Scroll down to see the button.</p>
+
+    <div style="margin-top: 1000px;">
+        <h2>Bottom of the Page</h2>
+        <p>Click the button to smoothly scroll to the top.</p>
+    </div>
+
+    <button id="topButton">Go to Top</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#topButton").click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
